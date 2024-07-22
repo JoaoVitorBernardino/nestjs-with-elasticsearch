@@ -9,8 +9,7 @@ import { readFileSync } from "fs";
             useFactory: (configService: ConfigService) => ({
                 node: `https://${configService.get<string>('ELASTIC_HOST')}:${configService.get<string>('ELASTIC_PORT')}`,
                 auth: {
-                    username: 'elastic',
-                    password: configService.get<string>('ELASTIC_PASSWORD'),
+                    apiKey: configService.get<string>('ELASTIC_KEY')
                 },
                 tls: {
                     ca: readFileSync('./http_ca.crt'),
