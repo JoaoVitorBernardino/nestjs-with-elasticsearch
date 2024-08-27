@@ -24,7 +24,7 @@ async function main() {
         const productIds: string[] = [];
         const productsData: Product[] = [];
 
-        for (let i = 0; i < 500000; i++) {
+        for (let i = 0; i < configService.get<number>('QUANTITY_INSERT_SEED'); i++) {
             const productData = {
                 name: faker.commerce.productName(),
                 description: faker.commerce.productDescription(),
@@ -50,7 +50,7 @@ async function main() {
 
         const salesData: Sale[] = [];
 
-        for (let i = 0; i < 500000; i++) {
+        for (let i = 0; i < configService.get<number>('QUANTITY_INSERT_SEED'); i++) {
             const randomProductId = productIds[Math.floor(Math.random() * productIds.length)];
             const saleData = {
                 quantity: faker.number.int({ min: 1, max: 100 }),
