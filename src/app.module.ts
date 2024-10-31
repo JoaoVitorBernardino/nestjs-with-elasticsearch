@@ -5,7 +5,9 @@ import { SalesModule } from './sales/sales.module';
 
 @Module({
     imports: [
-        PrismaModule,
+        ConfigModule.forRoot({
+            isGlobal: true,
+        }),
         ProductModule,
         SalesModule
     ]
